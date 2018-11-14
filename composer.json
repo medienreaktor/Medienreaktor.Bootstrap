@@ -3,7 +3,7 @@
     "name": "medienreaktor/bootstrap",
     "require": {
         "neos/fusion": "*",
-        "neos/fusion-afx": "1.*",
+        "neos/fusion-afx": "1.*"
     },
     "autoload": {
         "psr-4": {
