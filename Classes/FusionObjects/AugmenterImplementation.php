@@ -45,12 +45,14 @@ class AugmenterImplementation extends \Neos\Fusion\FusionObjects\AugmenterImplem
         if (isset($values['size'])) {
             $classes[] = $className.'-'.$values['size'];
         }
+        if (isset($values['classAppend']) && $values['classAppend']) {
+            $classes[] = $className.'-'.$values['classAppend'];
+        }
+        $attributes['class'] = implode($classes, ' ');
 
         if (isset($values['type'])) {
             $attributes['type'] = $values['type'];
         }
-
-        $attributes['class'] = implode($classes, ' ');
 
         if ($attributes && is_array($attributes) && count($attributes) > 0) {
             return $this->htmlAugmenter->addAttributes($content, $attributes, $fallbackTagName);

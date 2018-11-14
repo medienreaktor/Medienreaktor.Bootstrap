@@ -1,18 +1,18 @@
-prototype(Medienreaktor.Bootstrap:Component.Button) < prototype(Neos.Fusion:Component) {
-  tagName = 'a'
-  className = 'btn'
-  theme = 'primary'
-  outline = false
-  size = 'md'
-  type = false
-  href = false
-  content = ''
+prototype(Medienreaktor.Bootstrap:Component.Button) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'a'
+    className = 'btn'
+    theme = 'primary'
+    outline = false
+    size = false
+    type = false
+    href = false
+    content = ''
 
-  renderer = afx`
-    <Medienreaktor.Bootstrap:Augmenter className={props.className} theme={props.theme} size={props.size} outline={props.outline} type={props.type}>
-      <Neos.Fusion:Tag tagName={props.tagName} attributes.href={props.href}>
-        {props.content}
-      </Neos.Fusion:Tag>
-    </Medienreaktor.Bootstrap:Augmenter>
-  `
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} theme={props.theme} size={props.size} outline={props.outline} type={props.type}>
+            <Neos.Fusion:Tag tagName={props.tagName} attributes.href={props.href}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
 }
