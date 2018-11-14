@@ -48,6 +48,9 @@ class AugmenterImplementation extends \Neos\Fusion\FusionObjects\AugmenterImplem
         if (isset($values['classAppend']) && $values['classAppend']) {
             $classes[] = $className.'-'.$values['classAppend'];
         }
+        if (isset($values['state']) && $values['state']) {
+            $classes[] = $values['state'];
+        }
         $attributes['class'] = implode($classes, ' ');
 
         if (isset($values['type'])) {

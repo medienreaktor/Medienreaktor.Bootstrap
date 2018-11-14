@@ -1,0 +1,36 @@
+prototype(Medienreaktor.Bootstrap:Component.Breadcrumb) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'ol'
+    className = 'breadcrumb'
+
+    # array [{title: 'Title', href: 'http://', active: false}, {...}]
+    items = null
+
+    renderer = afx`
+        <nav aria-label="breadcrumb">
+            <Medienreaktor.Bootstrap:Augmenter className={props.className}>
+                <Neos.Fusion:Tag tagName={props.tagName}>
+                    <Neos.Fusion:Collection collection={props.items} itemName="item">
+                        <Medienreaktor.Bootstrap:Component.BreadcrumbItem {...item} />
+                    </Neos.Fusion:Collection>
+                </Neos.Fusion:Tag>
+            </Medienreaktor.Bootstrap:Augmenter>
+        </nav>
+    `
+}
+
+
+prototype(Medienreaktor.Bootstrap:Component.BreadcrumbItem) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'li'
+    className = 'breadcrumb-item'
+    active = false
+    href = false
+    title = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} state={props.active ? 'active' : false}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <a href={props.href ? props.href : '#'}>{props.title}</a>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
