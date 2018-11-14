@@ -1,0 +1,12 @@
+{
+    "type": "neos-package",
+    "name": "medienreaktor/bootstrap",
+    "require": {
+        "neos/fusion": "*"
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Medienreaktor.Bootstrap"
+        }
+    }
+}
