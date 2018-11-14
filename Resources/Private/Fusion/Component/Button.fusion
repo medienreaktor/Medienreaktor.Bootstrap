@@ -9,8 +9,8 @@ prototype(Medienreaktor.Bootstrap:Component.Button) < prototype(Medienreaktor.Bo
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} theme={props.theme} size={props.size} outline={props.outline} type={props.type}>
-            <Neos.Fusion:Tag tagName={props.tagName} attributes.href={props.href}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} href={props.href} theme={props.theme} size={props.size} outline={props.outline} type={props.type}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>

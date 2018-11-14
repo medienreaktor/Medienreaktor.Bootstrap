@@ -1,0 +1,16 @@
+prototype(Medienreaktor.Bootstrap:Component.Badge) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'span'
+    className = 'badge'
+    pill = false
+    theme = 'primary'
+    href = false
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} href={props.href} theme={props.theme} classAppend={props.pill ? 'pill' : false}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
