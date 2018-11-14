@@ -11,7 +11,7 @@ use Neos\Fusion\Service\HtmlAugmenter;
  *
  * @api
  */
-class AugmenterImplementation extends Neos\Fusion\FusionObjects\AugmenterImplementation
+class AugmenterImplementation extends \Neos\Fusion\FusionObjects\AugmenterImplementation
 {
 
     /**
@@ -30,6 +30,27 @@ class AugmenterImplementation extends Neos\Fusion\FusionObjects\AugmenterImpleme
                 $values[$key] = $fusionValue;
             }
         }
+
+        $attributes = [];
+
+        $className = $values['className'] ? $values['className'] : 'component';
+        $classes = [$className];
+        if (isset($values['theme'])) {
+            if (isset($values['outline']) && $values['outline']) {
+                $classes[] = $className.'-outline-'.$values['theme'];
+            } else {
+                $classes[] = $className.'-'.$values['theme'];
+            }
+        }
+        if (isset($values['size'])) {
+            $classes[] = $className.'-'.$values['size'];
+        }
+
+        if (isset($values['type'])) {
+            $attributes['type'] = $values['type'];
+        }
+
+        $attributes['class'] = implode($classes, ' ');
 
         if ($attributes && is_array($attributes) && count($attributes) > 0) {
             return $this->htmlAugmenter->addAttributes($content, $attributes, $fallbackTagName);
