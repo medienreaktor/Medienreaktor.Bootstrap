@@ -1,0 +1,14 @@
+prototype(Medienreaktor.Bootstrap:Component.Button) < prototype(Neos.Fusion:Component) {
+  tagName = 'a'
+  link = ''
+  text = ''
+  theme = 'primary'
+  outline = false
+  size = 'md'
+
+  renderer = afx`
+    <Neos.Fusion:Tag tagName={props.tagName} attributes.href={props.tagName == 'a' ? props.link} attributes.class={'btn btn-' + (props.outline ? 'outline-') + props.theme + ' btn-' + props.size}>
+      {props.text}
+    </Neos.Fusion:Tag>
+  `
+}

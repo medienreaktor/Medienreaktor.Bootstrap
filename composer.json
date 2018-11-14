@@ -2,7 +2,13 @@
     "type": "neos-package",
     "name": "medienreaktor/bootstrap",
     "require": {
-        "neos/fusion": "*"
+        "neos/fusion": "*",
+        "neos/fusion-afx": "1.*",
+    },
+    "autoload": {
+        "psr-4": {
+            "Medienreaktor\\Bootstrap\\": "Classes/"
+        }
     },
     "extra": {
         "neos": {

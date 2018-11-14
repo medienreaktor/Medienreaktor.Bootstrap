@@ -1,0 +1,5 @@
+include: **/*.fusion
+
+prototype(Medienreaktor.Bootstrap:Augmenter) < prototype(Neos.Fusion:Augmenter) {
+  @class = 'Medienreaktor\\Bootstrap\\FusionObjects\\AugmenterImplementation'
+}
