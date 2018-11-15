@@ -9,7 +9,7 @@ prototype(Medienreaktor.Bootstrap:Component.Breadcrumb) < prototype(Medienreakto
         <nav aria-label="breadcrumb">
             <Medienreaktor.Bootstrap:Augmenter className={props.className}>
                 <Neos.Fusion:Tag tagName={props.tagName}>
-                    <Neos.Fusion:Collection collection={props.items} itemName="item">
+                    <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
                         <Medienreaktor.Bootstrap:Component.BreadcrumbItem title={item.title} href={item.href} active={item.active} />
                     </Neos.Fusion:Collection>
                 </Neos.Fusion:Tag>
