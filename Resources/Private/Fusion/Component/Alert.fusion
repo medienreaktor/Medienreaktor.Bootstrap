@@ -6,7 +6,7 @@ prototype(Medienreaktor.Bootstrap:Component.Alert) < prototype(Medienreaktor.Boo
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNamesAppend={{'dismissible': props.dismissable}} theme={props.theme}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNamesAppend={{'dismissible': props.dismissable}} theme={props.theme}>
             <Neos.Fusion:Tag tagName={props.tagName} attributes.role="alert">
                 {props.content}
                 <Neos.Fusion:Augmenter data-dismiss="alert" aria-label="Close" @if.isDimissible={props.dismissible}>

@@ -7,7 +7,7 @@ prototype(Medienreaktor.Bootstrap:Component.Breadcrumb) < prototype(Medienreakto
 
     renderer = afx`
         <nav aria-label="breadcrumb">
-            <Medienreaktor.Bootstrap:Augmenter className={props.className}>
+            <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
                 <Neos.Fusion:Tag tagName={props.tagName}>
                     <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
                         <Medienreaktor.Bootstrap:Component.BreadcrumbItem title={item.title} href={item.href} active={item.active} />
@@ -26,7 +26,7 @@ prototype(Medienreaktor.Bootstrap:Component.BreadcrumbItem) < prototype(Medienre
     title = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'active': props.active}}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'active': props.active}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 <a href={props.href ? props.href : '#'}>{props.title}</a>
             </Neos.Fusion:Tag>

@@ -6,7 +6,7 @@ prototype(Medienreaktor.Bootstrap:Component.ButtonGroup) < prototype(Medienreakt
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNamesAppend={{'vertical': props.vertical}}  size={props.size}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNamesAppend={{'vertical': props.vertical}}  size={props.size}>
             <Neos.Fusion:Tag tagName={props.tagName} attributes.role="group">
                 {props.content}
             </Neos.Fusion:Tag>
@@ -21,7 +21,7 @@ prototype(Medienreaktor.Bootstrap:Component.ButtonToolbar) < prototype(Medienrea
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} size={props.size}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} size={props.size}>
             <Neos.Fusion:Tag tagName={props.tagName} attributes.role="toolbar">
                 {props.content}
             </Neos.Fusion:Tag>

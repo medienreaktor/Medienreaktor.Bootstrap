@@ -73,6 +73,9 @@ class AugmenterImplementation extends \Neos\Fusion\FusionObjects\AugmenterImplem
         if (isset($values['href'])) {
             $attributes['href'] = $values['href'];
         }
+        if (isset($values['id'])) {
+            $attributes['id'] = $values['id'];
+        }
 
         if ($attributes && is_array($attributes) && count($attributes) > 0) {
             return $this->htmlAugmenter->addAttributes($content, $attributes, $fallbackTagName);

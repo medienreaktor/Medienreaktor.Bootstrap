@@ -7,7 +7,7 @@ prototype(Medienreaktor.Bootstrap:Component.ListGroup) < prototype(Medienreaktor
     items = null
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNamesAppend={{'flush': props.flush}}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNamesAppend={{'flush': props.flush}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
                     <Medienreaktor.Bootstrap:Component.ListGroupItem title={item.title} href={item.href} active={item.active} theme={item.theme} />
@@ -26,7 +26,7 @@ prototype(Medienreaktor.Bootstrap:Component.ListGroupItem) < prototype(Medienrea
     title = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'active': props.active}} classNamesAppend={{'action': props.href}} theme={props.theme} href={props.href}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'active': props.active}} classNamesAppend={{'action': props.href}} theme={props.theme} href={props.href}>
             <Neos.Fusion:Tag tagName={props.href ? 'a' : props.tagName}>
                 {props.title}
             </Neos.Fusion:Tag>

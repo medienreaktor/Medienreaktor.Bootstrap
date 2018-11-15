@@ -5,5 +5,7 @@ prototype(Medienreaktor.Bootstrap:Augmenter) < prototype(Neos.Fusion:Augmenter) 
 }
 
 prototype(Medienreaktor.Bootstrap:Component) < prototype(Neos.Fusion:Component) {
-
+    id = false
+    tagName = 'div'
+    className = 'component'
 }
