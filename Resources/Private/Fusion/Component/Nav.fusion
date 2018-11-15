@@ -1,0 +1,53 @@
+prototype(Medienreaktor.Bootstrap:Component.Nav) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'ul'
+    className = 'nav'
+    tabs = false
+    pills = false
+    fill = false
+    justified = false
+
+    # array [{title: 'Title', href: 'http://', active: false}, {...}]
+    items = null
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'tabs': props.tabs, 'pills': props.pills, 'fill': props.fill, 'justified': props.justified}}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
+                    <Medienreaktor.Bootstrap:Component.NavItem title={item.title} href={item.href} active={item.active} />
+                </Neos.Fusion:Collection>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.NavItem) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'li'
+    className = 'nav-item'
+    active = false
+    href = false
+    title = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Medienreaktor.Bootstrap:Component.NavLink title={props.title} href={props.href} active={props.active} />
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.NavLink) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'a'
+    className = 'nav-link'
+    active = false
+    href = false
+    title = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} href={props.href} state={props.active ? 'active' : false}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.title}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
