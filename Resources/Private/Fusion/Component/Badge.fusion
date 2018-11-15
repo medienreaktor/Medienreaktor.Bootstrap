@@ -7,7 +7,7 @@ prototype(Medienreaktor.Bootstrap:Component.Badge) < prototype(Medienreaktor.Boo
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'pill': props.pill}} href={props.href} theme={props.theme}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNamesAppend={{'pill': props.pill}} href={props.href} theme={props.theme}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>

@@ -10,7 +10,7 @@ prototype(Medienreaktor.Bootstrap:Component.Nav) < prototype(Medienreaktor.Boots
     items = null
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'tabs': props.tabs, 'pills': props.pills, 'fill': props.fill, 'justified': props.justified}}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNamesAppend={{'tabs': props.tabs, 'pills': props.pills, 'fill': props.fill, 'justified': props.justified}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
                     <Medienreaktor.Bootstrap:Component.NavItem title={item.title} href={item.href} active={item.active} />
@@ -44,7 +44,7 @@ prototype(Medienreaktor.Bootstrap:Component.NavLink) < prototype(Medienreaktor.B
     title = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} href={props.href} state={props.active ? 'active' : false}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'active': props.active}} href={props.href}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.title}
             </Neos.Fusion:Tag>

@@ -2,14 +2,14 @@ prototype(Medienreaktor.Bootstrap:Component.Alert) < prototype(Medienreaktor.Boo
     tagName = 'div'
     className = 'alert'
     theme = 'primary'
-    dismissable = false
+    dismissible = false
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'dismissable': props.dismissable}} theme={props.theme}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNamesAppend={{'dismissible': props.dismissable}} theme={props.theme}>
             <Neos.Fusion:Tag tagName={props.tagName} attributes.role="alert">
                 {props.content}
-                <Neos.Fusion:Augmenter data-dismiss="alert" aria-label="Close" @if.isDimissable={props.dismissable}>
+                <Neos.Fusion:Augmenter data-dismiss="alert" aria-label="Close" @if.isDimissible={props.dismissible}>
                     <Medienreaktor.Bootstrap:Component.Button className="close" tagName="button" type="button" theme={false}>
                         <span aria-hidden="true">&times;</span>
                     </Medienreaktor.Bootstrap:Component.Button>

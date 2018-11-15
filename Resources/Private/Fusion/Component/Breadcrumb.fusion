@@ -26,7 +26,7 @@ prototype(Medienreaktor.Bootstrap:Component.BreadcrumbItem) < prototype(Medienre
     title = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} state={props.active ? 'active' : false}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'active': props.active}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 <a href={props.href ? props.href : '#'}>{props.title}</a>
             </Neos.Fusion:Tag>
