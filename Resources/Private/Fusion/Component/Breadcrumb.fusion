@@ -18,7 +18,6 @@ prototype(Medienreaktor.Bootstrap:Component.Breadcrumb) < prototype(Medienreakto
     `
 }
 
-
 prototype(Medienreaktor.Bootstrap:Component.BreadcrumbItem) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'li'
     className = 'breadcrumb-item'
