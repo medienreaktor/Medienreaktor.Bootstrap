@@ -1,0 +1,30 @@
+prototype(Medienreaktor.Bootstrap:Component.ButtonGroup) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'btn-group'
+    vertical = false
+    size = false
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} size={props.size} classAppend={props.vertical ? 'vertical' : false}>
+            <Neos.Fusion:Tag tagName={props.tagName} attributes.role="group">
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.ButtonToolbar) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'btn-toolbar'
+    size = false
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} size={props.size}>
+            <Neos.Fusion:Tag tagName={props.tagName} attributes.role="toolbar">
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
