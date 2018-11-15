@@ -1,0 +1,35 @@
+prototype(Medienreaktor.Bootstrap:Component.ListGroup) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'ul'
+    className = 'list-group'
+    flush = false
+
+    # array [{title: 'Title', href: 'http://', active: false, theme: false}, {...}]
+    items = null
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classAppend={props.flush ? 'flush' : false}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
+                    <Medienreaktor.Bootstrap:Component.ListGroupItem title={item.title} href={item.href} active={item.active} theme={item.theme} />
+                </Neos.Fusion:Collection>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.ListGroupItem) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'li'
+    className = 'list-group-item'
+    active = false
+    href = false
+    theme = false
+    title = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} theme={props.theme} href={props.href} state={props.active ? 'active' : false} classAppend={props.href ? 'action' : false}>
+            <Neos.Fusion:Tag tagName={props.href ? 'a' : props.tagName}>
+                {props.title}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
