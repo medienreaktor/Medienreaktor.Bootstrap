@@ -6,7 +6,7 @@ prototype(Medienreaktor.Bootstrap:Component.ButtonGroup) < prototype(Medienreakt
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter className={props.className} size={props.size} classAppend={props.vertical ? 'vertical' : false}>
+        <Medienreaktor.Bootstrap:Augmenter className={props.className} classNames={{'vertical': props.vertical}}  size={props.size}>
             <Neos.Fusion:Tag tagName={props.tagName} attributes.role="group">
                 {props.content}
             </Neos.Fusion:Tag>
