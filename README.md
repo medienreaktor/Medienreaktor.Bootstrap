@@ -1,5 +1,5 @@
 # Medienreaktor.Bootstrap
-Bootstrap Components for Neos CMS (Fusion Components and AFX)
+Bootstrap Components for Neos CMS (Fusion Components and AFX) – based on Bootstrap 4.1 (https://getbootstrap.com/)
 
 ## How to use
 
@@ -28,6 +28,27 @@ The resulting HTML is a Bootstrap button component:
 ```
 
 See the component fusion files for the complete API of all properties. In case of the button component, there are e.g. ```outline``` and ```size``` properties you can set either using NodeType properties or in your ContentComponent definition.
+
+## Included components
+
+### Layout
++ Container
++ Media
+
+### Component
++ Alert
++ Badge
++ Breadcrumb
++ Button
++ Button group
++ List group
++ Nav
++ Navbar
++ Pagination
+
+### Utility
++ Close icon
++ Embed responsive
 
 ## Work in progress
 
