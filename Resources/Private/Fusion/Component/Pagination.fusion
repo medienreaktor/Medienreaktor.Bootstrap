@@ -1,0 +1,53 @@
+prototype(Medienreaktor.Bootstrap:Component.Pagination) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'ul'
+    className = 'pagination'
+    size = false
+    alignment = false
+
+    # array [{title: 'Title', href: 'http://', active: false}, {...}]
+    items = null
+
+    renderer = afx`
+        <nav>
+            <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'justify-content': props.alignment}} size={props.size}>
+                <Neos.Fusion:Tag tagName={props.tagName}>
+                    <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
+                        <Medienreaktor.Bootstrap:Component.PageItem title={item.title} href={item.href} active={item.active} />
+                    </Neos.Fusion:Collection>
+                </Neos.Fusion:Tag>
+            </Medienreaktor.Bootstrap:Augmenter>
+        </nav>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.PageItem) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'li'
+    className = 'page-item'
+    active = false
+    disabled = false
+    href = false
+    title = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'active': props.active, 'disabled': props.disabled}}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Medienreaktor.Bootstrap:Component.PageLink title={props.title} href={props.href} />
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.PageLink) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'a'
+    className = 'page-link'
+    href = false
+    title = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} href={props.href}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.title}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}

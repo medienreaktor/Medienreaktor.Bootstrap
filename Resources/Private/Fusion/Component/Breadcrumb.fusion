@@ -6,7 +6,7 @@ prototype(Medienreaktor.Bootstrap:Component.Breadcrumb) < prototype(Medienreakto
     items = null
 
     renderer = afx`
-        <nav aria-label="breadcrumb">
+        <nav>
             <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
                 <Neos.Fusion:Tag tagName={props.tagName}>
                     <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
