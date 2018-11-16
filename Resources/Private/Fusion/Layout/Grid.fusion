@@ -18,6 +18,7 @@ prototype(Medienreaktor.Bootstrap:Layout.Row) < prototype(Medienreaktor.Bootstra
 prototype(Medienreaktor.Bootstrap:Layout.Col) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'div'
     className = 'col'
+    alignment = false
 
     # array {'sm': 6, 'md': 4, 'lg': 3}
     breakpoints = false
@@ -28,7 +29,7 @@ prototype(Medienreaktor.Bootstrap:Layout.Col) < prototype(Medienreaktor.Bootstra
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'order': props.orders}} classNamesAppend={props.breakpoints}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'order': props.orders, 'text': props.alignment}} classNamesAppend={props.breakpoints}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>
