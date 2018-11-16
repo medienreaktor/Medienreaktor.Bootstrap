@@ -66,7 +66,6 @@ class AugmenterImplementation extends \Neos\Fusion\FusionObjects\AugmenterImplem
             }
         }
         if (isset($values['classNamesAppend']) && $values['classNamesAppend']) {
-
             foreach ($values['classNamesAppend'] as $key => $value) {
                 if (is_bool($value) === true && (bool)$value === true) {
                     $classes[] = $className.'-'.(string)$key;
