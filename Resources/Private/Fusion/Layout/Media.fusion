@@ -1,19 +1,28 @@
 prototype(Medienreaktor.Bootstrap:Layout.Media) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'div'
     className = 'media'
-    img = ''
-    alt = ''
     content = ''
 
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
             <Neos.Fusion:Tag tagName={props.tagName}>
-                <Neos.Fusion:Augmenter class="mr-3">
-                    <Medienreaktor.Bootstrap:Content.Image src={props.img} alt={props.alt} @if.hasImage={props.img} />
-                </Neos.Fusion:Augmenter>
-                <Medienreaktor.Bootstrap:Layout.MediaBody>
-                    {props.content}
-                </Medienreaktor.Bootstrap:Layout.MediaBody>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Layout.MediaImage) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'media-image'
+    alignment = false
+    src = ''
+    alt = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'text': props.alignment}}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Medienreaktor.Bootstrap:Content.Image src={props.src} alt={props.alt} @if.hasSrc={props.src} />
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>
     `
@@ -22,10 +31,11 @@ prototype(Medienreaktor.Bootstrap:Layout.Media) < prototype(Medienreaktor.Bootst
 prototype(Medienreaktor.Bootstrap:Layout.MediaBody) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'div'
     className = 'media-body'
+    alignment = false
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'text': props.alignment}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>

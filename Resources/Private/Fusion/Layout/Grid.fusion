@@ -2,11 +2,12 @@ prototype(Medienreaktor.Bootstrap:Layout.Row) < prototype(Medienreaktor.Bootstra
     tagName = 'div'
     className = 'row'
     alignItems = false
+    justifyContent = false
     noGutters = false
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'align-items': props.alignItems, 'no-gutters': props.noGutters}}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'align-items': props.alignItems, 'justify-content': props.justifyContent, 'no-gutters': props.noGutters}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>

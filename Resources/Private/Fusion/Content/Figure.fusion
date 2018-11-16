@@ -1,17 +1,20 @@
 prototype(Medienreaktor.Bootstrap:Content.Figure) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'figure'
     className = 'figure'
-    img = ''
+    src = ''
     alt = ''
     caption = ''
+    alignment = 'left'
 
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 <Neos.Fusion:Augmenter class="figure-img">
-                    <Medienreaktor.Bootstrap:Content.Image src={props.img} alt={props.alt} @if.hasImage={props.img} />
+                    <Medienreaktor.Bootstrap:Content.Image src={props.src} alt={props.alt} @if.hasSrc={props.src} />
                 </Neos.Fusion:Augmenter>
-                <figcaption class="figure-caption">{props.caption}</figcaption>
+                <Neos.Fusion:Augmenter class={props.alignment ? 'text-' + props.alignment : false}>
+                    <figcaption class="figure-caption">{props.caption}</figcaption>
+                </Neos.Fusion:Augmenter>
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>
     `
