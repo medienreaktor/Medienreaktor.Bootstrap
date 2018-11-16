@@ -1,0 +1,32 @@
+prototype(Medienreaktor.Bootstrap:Layout.Media) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'media'
+    img = ''
+    alt = ''
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <img class="mr-3" src={props.img} alt={props.alt} />
+                <Medienreaktor.Bootstrap:Layout.MediaBody>
+                    {props.content}
+                </Medienreaktor.Bootstrap:Layout.MediaBody>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Layout.MediaBody) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'media-body'
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}

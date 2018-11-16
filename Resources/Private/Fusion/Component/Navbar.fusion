@@ -3,13 +3,13 @@ prototype(Medienreaktor.Bootstrap:Component.Navbar) < prototype(Medienreaktor.Bo
     className = 'navbar'
     theme = 'light'
     expand = 'lg'
-    container = true
+    fluid = false
     fixedTop = false
     fixedBottom = false
     stickyTop = false
     toggler = true
 
-    # array {title: 'Title', href: 'http://', img: 'http://'}
+    # array {title: 'Title', href: 'http://', img: 'http://', alt: 'Alternative text'}
     brand = null
 
     # array [{title: 'Title', href: 'http://', active: false}, {...}]
@@ -18,13 +18,13 @@ prototype(Medienreaktor.Bootstrap:Component.Navbar) < prototype(Medienreaktor.Bo
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'fixed-top': props.fixedTop, 'fixed-bottom': props.fixedBottom, 'sticky-top': props.stickyTop}} classNamesAppend={{'expand': props.expand}} theme={props.theme} background={props.theme}>
             <Neos.Fusion:Tag tagName={props.tagName}>
-                <div class={props.container ? 'container' : 'container-fluid'}>
+                <Medienreaktor.Bootstrap:Layout.Container fluid={props.fluid}>
                     <Medienreaktor.Bootstrap:Component.NavbarBrand brand={props.brand} @if.hasBrand={props.brand} />
                     <Medienreaktor.Bootstrap:Component.NavbarToggler target="navbar-collapse" @if.showToggler={props.toggler} />
                     <div class="collapse navbar-collapse" id="navbar-collapse">
                         <Medienreaktor.Bootstrap:Component.Nav items={props.items} className="navbar-nav" />
                     </div>
-                </div>
+                </Medienreaktor.Bootstrap:Layout.Container>
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>
     `
@@ -38,8 +38,19 @@ prototype(Medienreaktor.Bootstrap:Component.NavbarToggler) < prototype(Medienrea
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
             <Neos.Fusion:Tag tagName={props.tagName} attributes.type="button" attributes.data-toggle="collapse" attributes.data-target={'#' + props.target}>
-                <span class="navbar-toggler-icon"></span>
+                <Medienreaktor.Bootstrap:Component.NavbarTogglerIcon />
             </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.NavbarTogglerIcon) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'span'
+    className = 'navbar-toggler-icon'
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}></Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>
     `
 }
@@ -48,12 +59,13 @@ prototype(Medienreaktor.Bootstrap:Component.NavbarBrand) < prototype(Medienreakt
     tagName = 'div'
     className = 'navbar-brand'
 
-    # array {title: 'Title', href: 'http://', img: 'http://'}
+    # array {title: 'Title', href: 'http://', img: 'http://', alt: 'Alternative text'}
     brand = null
 
     title = ${this.brand.title}
     href = ${this.brand.href}
     img = ${this.brand.img}
+    alt = ${this.brand.alt}
 
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} href={props.href}>
