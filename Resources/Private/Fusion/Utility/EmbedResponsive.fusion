@@ -1,4 +1,4 @@
-prototype(Medienreaktor.Bootstrap:Component.EmbedResponsive) < prototype(Medienreaktor.Bootstrap:Component) {
+prototype(Medienreaktor.Bootstrap:Utility.EmbedResponsive) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'div'
     className = 'embed-responsive'
     ratio = '16by9'

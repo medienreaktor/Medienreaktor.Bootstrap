@@ -1,0 +1,11 @@
+prototype(Medienreaktor.Bootstrap:Utility.CloseIcon) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'button'
+    type = 'button'
+    className = 'close'
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Component.Button className={props.className} tagName={props.tagName} type={props.type} theme={false}>
+            <span aria-hidden="true">&times;</span>
+        </Medienreaktor.Bootstrap:Component.Button>
+    `
+}

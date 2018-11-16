@@ -10,9 +10,7 @@ prototype(Medienreaktor.Bootstrap:Component.Alert) < prototype(Medienreaktor.Boo
             <Neos.Fusion:Tag tagName={props.tagName} attributes.role="alert">
                 {props.content}
                 <Neos.Fusion:Augmenter data-dismiss="alert" aria-label="Close" @if.isDimissible={props.dismissible}>
-                    <Medienreaktor.Bootstrap:Component.Button className="close" tagName="button" type="button" theme={false}>
-                        <span aria-hidden="true">&times;</span>
-                    </Medienreaktor.Bootstrap:Component.Button>
+                    <Medienreaktor.Bootstrap:Utility.CloseIcon />
                 </Neos.Fusion:Augmenter>
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>
