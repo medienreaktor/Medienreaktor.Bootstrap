@@ -1,0 +1,76 @@
+prototype(Medienreaktor.Bootstrap:Component.Card) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'card'
+    theme = 'light'
+    textColor = ${this.theme != 'light' && this.theme != 'white' ? 'white' : 'body'}
+    overlay = false
+    header = false
+    footer = false
+    href = ''
+    title = ''
+    text = ''
+    content = ''
+    src = ''
+    alt = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} href={props.href} background={props.theme} classNames={{'text': props.textColor}}>
+            <Neos.Fusion:Tag tagName={props.href ? 'a' : props.tagName}>
+                <Medienreaktor.Bootstrap:Content.Image @if.hasSrc={props.src} src={props.src} alt={props.alt} className={props.overlay ? 'card-img' : 'card-img-top'} />
+                <Medienreaktor.Bootstrap:Component.CardHeader @if.hasHeader={props.header}>
+                    {props.header}
+                </Medienreaktor.Bootstrap:Component.CardHeader>
+                <Medienreaktor.Bootstrap:Component.CardBody className={props.overlay ? 'card-img-overlay': 'card-body'}>
+                    <h4 class="card-title" @if.hasTitle={props.title}>{props.title}</h4>
+                    <p class="card-text" @if.hasText={props.text}>{props.text}</p>
+                </Medienreaktor.Bootstrap:Component.CardBody>
+                {props.content}
+                <Medienreaktor.Bootstrap:Component.CardFooter @if.hasFooter={props.footer}>
+                    {props.footer}
+                </Medienreaktor.Bootstrap:Component.CardFooter>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.CardBody) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'card-body'
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.CardHeader) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'card-header'
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Component.CardFooter) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'card-footer'
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}

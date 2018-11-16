@@ -52,6 +52,7 @@ See the component fusion files for the complete API of all properties. In case o
 + Breadcrumb
 + Button
 + Button group
++ Card
 + List group
 + Nav
 + Navbar
