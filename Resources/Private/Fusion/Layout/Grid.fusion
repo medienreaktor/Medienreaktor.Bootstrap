@@ -1,0 +1,31 @@
+prototype(Medienreaktor.Bootstrap:Layout.Row) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'row'
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Layout.Col) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'col'
+
+    # array {'sm': 6, 'md': 4, 'lg': 3}
+    breakpoints = false
+
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNamesAppend={props.breakpoints}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}

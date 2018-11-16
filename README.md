@@ -33,6 +33,7 @@ See the component fusion files for the complete API of all properties. In case o
 
 ### Layout
 + Container
++ Grid (rows and cols)
 + Media
 
 ### Component
