@@ -1,10 +1,12 @@
 prototype(Medienreaktor.Bootstrap:Layout.Row) < prototype(Medienreaktor.Bootstrap:Component) {
     tagName = 'div'
     className = 'row'
+    alignItems = false
+    noGutters = false
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'align-items': props.alignItems, 'no-gutters': props.noGutters}}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>
@@ -19,10 +21,13 @@ prototype(Medienreaktor.Bootstrap:Layout.Col) < prototype(Medienreaktor.Bootstra
     # array {'sm': 6, 'md': 4, 'lg': 3}
     breakpoints = false
 
+    # array {'xs': 1, 'md': 1}
+    orders = false
+
     content = ''
 
     renderer = afx`
-        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNamesAppend={props.breakpoints}>
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'order': props.orders}} classNamesAppend={props.breakpoints}>
             <Neos.Fusion:Tag tagName={props.tagName}>
                 {props.content}
             </Neos.Fusion:Tag>
