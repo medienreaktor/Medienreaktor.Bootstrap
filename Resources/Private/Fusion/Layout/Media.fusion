@@ -8,7 +8,9 @@ prototype(Medienreaktor.Bootstrap:Layout.Media) < prototype(Medienreaktor.Bootst
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
             <Neos.Fusion:Tag tagName={props.tagName}>
-                <img class="mr-3" src={props.img} alt={props.alt} />
+                <Neos.Fusion:Augmenter class="mr-3">
+                    <Medienreaktor.Bootstrap:Content.Image src={props.img} alt={props.alt} @if.hasImage={props.img} />
+                </Neos.Fusion:Augmenter>
                 <Medienreaktor.Bootstrap:Layout.MediaBody>
                     {props.content}
                 </Medienreaktor.Bootstrap:Layout.MediaBody>

@@ -41,8 +41,10 @@ See the component fusion files for the complete API of all properties. In case o
 + Code
 + Figure
 + Heading
++ Image
 + Lead
 + List
++ Picture
 
 ### Component
 + Alert

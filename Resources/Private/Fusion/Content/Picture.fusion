@@ -1,0 +1,35 @@
+prototype(Medienreaktor.Bootstrap:Content.Picture) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'picture'
+    className = false
+
+    # array [{src: 'http://', media: '(min-width: 480px)', type: 'image/jpeg'}, {...}]
+    items = null
+
+    src = ''
+    alt = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
+                <Medienreaktor.Bootstrap:Content.Source item={item} />
+            </Neos.Fusion:Collection>
+            <Medienreaktor.Bootstrap:Content.Image src={props.src} alt={props.alt} />
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Content.Source) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'source'
+    className = false
+
+    # array {src: 'http://', media: '(min-width: 480px)', type: 'image/jpeg'}
+    item = null
+
+    src = ${this.item.src}
+    media = ${this.item.media}
+    type = ${this.item.type}
+
+    renderer = afx`
+        <Neos.Fusion:Tag tagName={props.tagName} srcset={props.src} media={props.media} type={props.type} />
+    `
+}

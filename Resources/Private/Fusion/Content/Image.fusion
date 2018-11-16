@@ -1,0 +1,15 @@
+prototype(Medienreaktor.Bootstrap:Content.Image) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'img'
+    className = 'img-fluid'
+    rounded = false
+    float = false
+    thumbnail = false
+    src = ''
+    alt = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNamesAppend={{'thumbnail': props.thumbnail}} classNames={{'float': props.float, 'rounded': props.rounded}}>
+            <Neos.Fusion:Tag tagName={props.tagName} attributes.src={props.src} attributes.alt={props.alt} />
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}

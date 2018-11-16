@@ -8,7 +8,9 @@ prototype(Medienreaktor.Bootstrap:Content.Figure) < prototype(Medienreaktor.Boot
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
             <Neos.Fusion:Tag tagName={props.tagName}>
-                <img class="figure-img img-fluid" src={props.img} alt={props.alt} />
+                <Neos.Fusion:Augmenter class="figure-img">
+                    <Medienreaktor.Bootstrap:Content.Image src={props.img} alt={props.alt} @if.hasImage={props.img} />
+                </Neos.Fusion:Augmenter>
                 <figcaption class="figure-caption">{props.caption}</figcaption>
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>

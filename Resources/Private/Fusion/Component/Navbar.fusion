@@ -70,7 +70,7 @@ prototype(Medienreaktor.Bootstrap:Component.NavbarBrand) < prototype(Medienreakt
     renderer = afx`
         <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} href={props.href}>
             <Neos.Fusion:Tag tagName={props.href ? 'a' : props.tagName}>
-                <img src={props.img} alt={props.alt} @if.hasImage={props.img} />
+                <Medienreaktor.Bootstrap:Content.Image src={props.img} alt={props.alt} @if.hasImage={props.img} />
                 {props.title}
             </Neos.Fusion:Tag>
         </Medienreaktor.Bootstrap:Augmenter>
