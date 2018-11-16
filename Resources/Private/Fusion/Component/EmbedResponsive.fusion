@@ -1,0 +1,16 @@
+prototype(Medienreaktor.Bootstrap:Component.EmbedResponsive) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'div'
+    className = 'embed-responsive'
+    ratio = '16by9'
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'embed-responsive': props.ratio}}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Neos.Fusion:Augmenter class="embed-responsive-item">
+                    {props.content}
+                </Neos.Fusion:Augmenter>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
