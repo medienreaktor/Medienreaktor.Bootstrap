@@ -1,0 +1,14 @@
+prototype(Medienreaktor.Bootstrap:Content.Heading) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'h1'
+    className = false
+    display = false
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className} classNames={{'display': props.display}}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}

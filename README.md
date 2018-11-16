@@ -36,6 +36,12 @@ See the component fusion files for the complete API of all properties. In case o
 + Grid (rows and cols)
 + Media
 
+### Content
++ Blockquote
++ Heading
++ Lead
++ List
+
 ### Component
 + Alert
 + Badge
@@ -47,7 +53,7 @@ See the component fusion files for the complete API of all properties. In case o
 + Navbar
 + Pagination
 
-### Utility
+### Utilities
 + Close icon
 + Embed responsive
 

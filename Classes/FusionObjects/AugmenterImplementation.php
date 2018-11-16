@@ -32,9 +32,14 @@ class AugmenterImplementation extends \Neos\Fusion\FusionObjects\AugmenterImplem
         }
 
         $attributes = [];
+        $classes = [];
 
-        $className = $values['className'] ? $values['className'] : 'component';
-        $classes = [$className];
+        if (isset($values['className'])) {
+            $className = $values['className'];
+            $classes[] = $className;
+        } else {
+            $className = 'component';
+        }
         if (isset($values['theme'])) {
             if (isset($values['outline']) && $values['outline']) {
                 $classes[] = $className.'-outline-'.$values['theme'];

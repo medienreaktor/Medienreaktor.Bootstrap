@@ -1,0 +1,53 @@
+prototype(Medienreaktor.Bootstrap:Content.ListUnstyled) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'ul'
+    className = 'list-unstyled'
+
+    # array ['List item', 'List item', ...]
+    items = null
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
+                    <Medienreaktor.Bootstrap:Content.ListItem content={item} />
+                </Neos.Fusion:Collection>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Content.ListInline) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'ul'
+    className = 'list-inline'
+
+    # array ['List item', 'List item', ...]
+    items = null
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                <Neos.Fusion:Collection collection={props.items} itemName="item" @children="itemRenderer">
+                    <Medienreaktor.Bootstrap:Content.ListInlineItem content={item} />
+                </Neos.Fusion:Collection>
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Content.ListItem) < prototype(Medienreaktor.Bootstrap:Component) {
+    tagName = 'li'
+    className = false
+    content = ''
+
+    renderer = afx`
+        <Medienreaktor.Bootstrap:Augmenter id={props.id} className={props.className}>
+            <Neos.Fusion:Tag tagName={props.tagName}>
+                {props.content}
+            </Neos.Fusion:Tag>
+        </Medienreaktor.Bootstrap:Augmenter>
+    `
+}
+
+prototype(Medienreaktor.Bootstrap:Content.ListInlineItem) < prototype(Medienreaktor.Bootstrap:Content.ListItem) {
+    className = 'list-inline-item'
+}
