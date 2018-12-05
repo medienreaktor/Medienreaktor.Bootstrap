@@ -21,7 +21,9 @@ prototype(Medienreaktor.Bootstrap:Component.Card) < prototype(Medienreaktor.Boot
                     {props.header}
                 </Medienreaktor.Bootstrap:Component.CardHeader>
                 <Medienreaktor.Bootstrap:Component.CardBody className={props.overlay ? 'card-img-overlay': 'card-body'}>
-                    <h4 class="card-title" @if.hasTitle={props.title}>{props.title}</h4>
+                    <Medienreaktor.Bootstrap:Content.Heading className="card-title" @if.hasTitle={props.title}>
+                        {props.title}
+                    </Medienreaktor.Bootstrap:Content.Heading>
                     <p class="card-text" @if.hasText={props.text}>{props.text}</p>
                 </Medienreaktor.Bootstrap:Component.CardBody>
                 {props.content}
